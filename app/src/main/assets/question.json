@@ -1,0 +1,70 @@
+{
+  "title": "Sample Questionnaire",
+  "description": "This is a sample questionnaire with single and multiple choice questions.",
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the capital of France?",
+      "type": "single",
+      "options": [
+        "Paris",
+        "London",
+        "Rome",
+        "Berlin"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "text": "Which of the following languages are Romance languages?",
+      "type": "multiple",
+      "options": [
+        "French",
+        "Spanish",
+        "Italian",
+        "German",
+        "Portuguese"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        3
+      ]
+    },
+
+    {
+      "id": 3,
+      "text": "What is the largest country by land mass?",
+      "type": "single",
+      "options": [
+        "Russia",
+        "Canada",
+        "China",
+        "United States"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+    },
+
+    {
+      "id": 4,
+      "text": "What are the primary colors?",
+      "type": "multiple",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Black",
+        "White"
+      ],
+      "correctAnswers": [
+        0,
+        1,
+        2
+      ],
+      "required": true
+    }
+  ]
+}
+
