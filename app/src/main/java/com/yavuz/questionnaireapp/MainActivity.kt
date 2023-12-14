@@ -3,6 +3,7 @@ package com.yavuz.questionnaireapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.submitButton.setOnClickListener {
+            Toast.makeText(applicationContext, "YOUR ANSWERS HAVE BEEN SAVED", Toast.LENGTH_SHORT).show()
+        }
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         questionAdapter = QuestionAdapter(emptyList())
         binding.recyclerView.adapter = questionAdapter
@@ -27,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         fetchData()
     }
+
+
     private fun readLocalJson(): Questionnaire {
         try {
             val inputStream: InputStream = assets.open("question.json")
@@ -60,4 +67,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }

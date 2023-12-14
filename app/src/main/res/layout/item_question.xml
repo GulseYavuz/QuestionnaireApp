@@ -32,26 +32,6 @@
             android:padding="5dp"
             android:visibility="gone">
 
-
-            <RadioButton
-                android:id="@+id/answerOption1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <RadioButton
-                android:id="@+id/answerOption2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <RadioButton
-                android:id="@+id/answerOption3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <RadioButton
-                android:id="@+id/answerOption4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </RadioGroup>
 
         <LinearLayout
@@ -63,30 +43,6 @@
             android:orientation="vertical"
             android:visibility="gone">
 
-            <CheckBox
-                android:id="@+id/checkboxOption1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:id="@+id/checkboxOption2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:id="@+id/checkboxOption3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:id="@+id/checkboxOption4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <CheckBox
-                android:id="@+id/checkboxOption5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </LinearLayout>
     </LinearLayout>
 

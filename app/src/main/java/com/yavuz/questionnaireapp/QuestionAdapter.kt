@@ -29,9 +29,6 @@ class QuestionAdapter (private val questions: List<Question>) :
         val question = questions[position]
         holder.binding.questionTextView.text = question.text
 
-        holder.binding.singleChoiceRadioGroup.removeAllViews()
-        holder.binding.multipleChoiceLayout.removeAllViews()
-
         if(!question.options.isNullOrEmpty()) {
             for (option in question.options) {
                 if (question.type == "single") {

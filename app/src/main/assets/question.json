@@ -12,7 +12,8 @@
         "Rome",
         "Berlin"
       ],
-      "correctAnswer": 0
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+
     },
     {
       "id": 2,
@@ -25,11 +26,8 @@
         "German",
         "Portuguese"
       ],
-      "correctAnswers": [
-        0,
-        1,
-        3
-      ]
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+
     },
 
     {
@@ -42,7 +40,6 @@
         "China",
         "United States"
       ],
-      "correctAnswer": 0,
       "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
     },
 
@@ -58,11 +55,38 @@
         "Black",
         "White"
       ],
-      "correctAnswers": [
-        0,
-        1,
-        2
+      "required": true
+    },
+
+    {
+      "id": 5,
+      "text": "What are the primary colors?",
+      "type": "single",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Black",
+        "White"
       ],
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
+      "required": true
+    },
+
+    {
+      "id": 6,
+      "text": "What are the primary colors?",
+      "type": "multiple",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "Black",
+        "White"
+      ],
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
       "required": true
     }
   ]
