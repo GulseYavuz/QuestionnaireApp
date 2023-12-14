@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerView.adapter = questionAdapter
         Log.d("MainActivity", "Number of items in adapter: ${questionAdapter.itemCount}")
 
-
         fetchData()
     }
     private fun readLocalJson(): Questionnaire {
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             inputStream.read(buffer)
             inputStream.close()
             val json = String(buffer, Charsets.UTF_8)
-            Log.d("JSON VERİSİ", json)
+            Log.d("JSON DATA", json)
 
             val gson = Gson()
             return gson.fromJson(json, Questionnaire::class.java)
@@ -48,10 +47,8 @@ class MainActivity : AppCompatActivity() {
     private fun fetchData() {
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                // readLocalJson fonksiyonu ile JSON verilerini alın
                 val question = readLocalJson()
 
-                // UI thread'inde RecyclerView'ı güncellemek için withContext kullanın
                 withContext(Dispatchers.Main) {
                     questionAdapter = QuestionAdapter(question.questions)
                     binding.recyclerView.adapter = questionAdapter

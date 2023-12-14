@@ -4,6 +4,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
 import com.yavuz.questionnaireapp.databinding.ItemQuestionBinding
 
@@ -26,6 +28,23 @@ class QuestionAdapter (private val questions: List<Question>) :
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val question = questions[position]
         holder.binding.questionTextView.text = question.text
+
+        holder.binding.singleChoiceRadioGroup.removeAllViews()
+        holder.binding.multipleChoiceLayout.removeAllViews()
+
+        if(!question.options.isNullOrEmpty()) {
+            for (option in question.options) {
+                if (question.type == "single") {
+                    val radioButton = RadioButton(holder.itemView.context)
+                    radioButton.text = option
+                    holder.binding.singleChoiceRadioGroup.addView(radioButton)
+                } else if (question.type == "multiple") {
+                    val checkBox = CheckBox(holder.itemView.context)
+                    checkBox.text = option
+                    holder.binding.multipleChoiceLayout.addView(checkBox)
+                }
+            }
+        }
 
         Log.d("QuestionAdapter", "Binding question: ${question.text}")
         if(question.type == "single"){
