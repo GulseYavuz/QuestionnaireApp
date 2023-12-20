@@ -13,11 +13,10 @@ data class Questionnaire(
 
 @Parcelize
 data class Question(
-    @SerializedName("id") val id: Int ,
-    @SerializedName("text") val text: String?,
-    @SerializedName("type") val type: String?,
+    @SerializedName("id") val id: Int,
+    @SerializedName("text") var text: String,
+    @SerializedName("type") val type: String,
     @SerializedName("options") val options: List<String>? = null
 ) :Parcelable
-
 
 

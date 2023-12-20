@@ -55,6 +55,7 @@
         "Black",
         "White"
       ],
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
       "required": true
     },
 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="QuestionView">
+        <attr name="questionText" format="string" />
+        <attr name="customAttribute" format="string" />
+        <attr name="questionType" format="enum">
+
+            <enum name="single" value="0" />
+            <enum name="multiple" value="1" />
+            <!-- Ek türler buraya eklenebilir -->
+        </attr>
+        <attr name="explanation" format="string" />
+    </declare-styleable>
+    <item name="questionView" type="id" />
+    <item name="optionsLayout" type="id" />
+</resources>
