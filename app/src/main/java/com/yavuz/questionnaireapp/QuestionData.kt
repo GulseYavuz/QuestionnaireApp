@@ -16,7 +16,7 @@ data class Question(
     @SerializedName("id") val id: Int,
     @SerializedName("text") var text: String,
     @SerializedName("type") val type: String,
-    @SerializedName("options") val options: List<String>? = null
+    @SerializedName("options") var options: List<String>? = null
 ) :Parcelable
 
 

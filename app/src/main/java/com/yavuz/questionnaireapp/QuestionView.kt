@@ -6,56 +6,49 @@ import android.view.LayoutInflater
 import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 
 class QuestionView
 @JvmOverloads
 constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0
-) : LinearLayout(context, attrs) {
+) : RelativeLayout(context, attrs) {
     private var questionTextView: TextView
     private var optionsLayout: LinearLayout
+    var questionAdapter: QuestionAdapter
 
     init {
 
         LayoutInflater.from(context).inflate(R.layout.custom_view, this, true)
-        orientation = VERTICAL
 
         questionTextView = findViewById(R.id.questionTextView)
         optionsLayout = findViewById(R.id.optionsLayout)
-
+        questionAdapter = QuestionAdapter(questions = emptyList())
     }
-    fun getUserAnswer(question: Question) {
-
+    fun setQuestion(question: Question) {
+        questionTextView.text = question.text
         optionsLayout.removeAllViews()
 
-        for (option in question.options!!) {
-            if (question.type == "single") {
+        if (question.type == "single") {
+            val radioGroup = RadioGroup(context)
+            question.options?.forEach { option ->
                 val radioButton = RadioButton(context)
                 radioButton.text = option
-                optionsLayout.addView(radioButton)
-            } else if (question.type == "multiple") {
+                radioGroup.addView(radioButton)
+            }
+            optionsLayout.addView(radioGroup)
+        } else if (question.type == "multiple") {
+            question.options?.forEach { option ->
                 val checkBox = CheckBox(context)
                 checkBox.text = option
                 optionsLayout.addView(checkBox)
             }
         }
+
     }
-
-    fun setQuestion(question: Question) {
-      questionTextView.text = question.text
-        getUserAnswer(question)
-    }
-
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-         optionsLayout.measure(widthMeasureSpec, heightMeasureSpec)
-    }
-
-    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
-
-         optionsLayout.layout(left, top, right, bottom)
-    }
+ /*   fun addQuestion(question: Question) {
+        questionAdapter.updateItemAtPosition(0, question) // Güncelleme işlemi, eğer farklı bir indekse eklemek istiyorsanız onu belirtin
+    }*/
 }
