@@ -12,15 +12,11 @@ class QuestionAdapter (
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
 
     inner class QuestionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val questionView: QuestionView = itemView as QuestionView
-
-        fun bind(question: Question) {
-            questionView.setQuestion(question)
-        }
+        val customViewAdapter: QuestionView = itemView.findViewById(R.id.questionView)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.custom_view, parent, false)
-        return QuestionViewHolder(itemView)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.custom_view, parent, false)
+        return QuestionViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -29,10 +25,8 @@ class QuestionAdapter (
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val question = questions[position]
-        holder.bind(question)
+        holder.customViewAdapter.setQuestion(question)
     }
-/*    fun updateItemAtPosition(position: Int, updatedItem: Question) {
-        questions[position] = updatedItem
-        notifyItemChanged(position)
-    }*/
+
+
 }

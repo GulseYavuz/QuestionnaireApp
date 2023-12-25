@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C4D7DD"
     android:orientation="vertical">
+
 
     <TextView
         android:id="@+id/questionnaireTitleTextView"
@@ -24,14 +25,16 @@
         android:padding="10dp"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/questionTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="10dp"
-        android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/questionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="10dp"
+            android:textSize="18sp" />
+
 
     <LinearLayout
         android:id="@+id/optionsLayout"
@@ -41,4 +44,4 @@
         android:layout_below="@+id/questionTextView"/>
 
 
-</RelativeLayout>
+</LinearLayout>

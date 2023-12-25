@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Questionnaire(
-    @SerializedName("questions") val questions: List<Question>,
+    @SerializedName("questions") val questions: MutableList<Question>,
     @SerializedName("title") val title: String ,
     @SerializedName("description") val description: String
 ) : Parcelable
