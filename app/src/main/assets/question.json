@@ -13,7 +13,6 @@
         "Berlin"
       ],
       "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
-
     },
     {
       "id": 2,
@@ -89,6 +88,33 @@
       ],
       "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
       "required": true
+    },
+
+    {
+      "id": 7,
+      "text": "Which of the following languages are Romance languages?",
+      "type": "multiple",
+      "options": [
+        "French",
+        "Spanish",
+        "Italian",
+        "German",
+        "Portuguese"
+      ],
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+    },
+    {
+      "id": 8,
+      "text": "What is the capital of France?",
+      "type": "single",
+      "options": [
+        "Paris",
+        "London",
+        "Rome",
+        "Berlin"
+      ],
+      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+
     }
   ]
 }

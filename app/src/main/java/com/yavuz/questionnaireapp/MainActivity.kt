@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         questionnaire = loadQuestions()
-        binding.questionView.setQuestions(questionnaire.questions)
+        binding.questionView.setQuestions(questionnaire.questionXES)
 
 
     }

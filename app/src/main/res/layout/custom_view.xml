@@ -5,43 +5,9 @@
     android:background="#C4D7DD"
     android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/questionnaireTitleTextView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:padding="10dp"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/descriptionTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:padding="10dp"
-        android:textSize="18sp" />
-
-
-        <TextView
-            android:id="@+id/questionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="10dp"
-            android:textSize="18sp" />
-
-
-    <LinearLayout
-        android:id="@+id/optionsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/questionTextView"/>
-
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
