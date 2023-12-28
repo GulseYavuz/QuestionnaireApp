@@ -11,7 +11,7 @@ import com.yavuz.questionnaireapp.databinding.ItemQuestionBinding
 
 
 class QuestionAdapter (
-    private var question: List<QuestionX>
+    private var question: List<Question>
 ) :
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
 
@@ -30,6 +30,14 @@ class QuestionAdapter (
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val question = question[position]
         holder.itemQuestionBinding.questionTextView.text = question.text
+        holder.itemQuestionBinding.explanationTextView.text = question.explanation
+
+        if (question.isRequired) {
+            holder.itemQuestionBinding.requiredTextView.visibility = View.VISIBLE
+        } else {
+            holder.itemQuestionBinding.requiredTextView.visibility = View.GONE
+        }
+
 
         holder.itemQuestionBinding.singleChoiceRadioGroup.removeAllViews()
         holder.itemQuestionBinding.multipleChoiceLayout.removeAllViews()
@@ -56,7 +64,7 @@ class QuestionAdapter (
             holder.itemQuestionBinding.multipleChoiceLayout.visibility = View.VISIBLE
         }
     }
-    fun setQuestions(questions: List<QuestionX>) {
+    fun setQuestions(questions: List<Question>) {
         this.question = questions
         notifyDataSetChanged()
     }

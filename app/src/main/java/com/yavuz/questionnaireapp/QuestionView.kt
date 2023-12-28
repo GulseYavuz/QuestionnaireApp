@@ -23,7 +23,7 @@ constructor(
         binding.recyclerView.adapter = questionAdapter
     }
 
-    fun setQuestions(questions: List<QuestionX>) {
+    fun setQuestions(questions: List<Question>) {
         questionAdapter.setQuestions(questions)
     }
 

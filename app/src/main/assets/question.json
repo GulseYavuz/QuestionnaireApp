@@ -12,7 +12,7 @@
         "Rome",
         "Berlin"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+      "explanation": "EXPLANATION 1"
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
         "German",
         "Portuguese"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+      "explanation": "EXPLANATION 2"
 
     },
 
@@ -39,7 +39,7 @@
         "China",
         "United States"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+      "explanation": "EXPLANATION 3"
     },
 
     {
@@ -54,7 +54,7 @@
         "Black",
         "White"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
+      "explanation": "EXPLANATION 4",
       "required": true
     },
 
@@ -70,7 +70,7 @@
         "Black",
         "White"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
+      "explanation": "EXPLANATION 5",
       "required": true
     },
 
@@ -86,7 +86,7 @@
         "Black",
         "White"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country.",
+      "explanation": "EXPLANATION 6",
       "required": true
     },
 
@@ -101,7 +101,7 @@
         "German",
         "Portuguese"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+      "explanation": "EXPLANATION 7"
     },
     {
       "id": 8,
@@ -113,7 +113,7 @@
         "Rome",
         "Berlin"
       ],
-      "explanation": "Russia occupies over 17 million square kilometers, making it larger than any other country."
+      "explanation": "EXPLANATION 8"
 
     }
   ]
