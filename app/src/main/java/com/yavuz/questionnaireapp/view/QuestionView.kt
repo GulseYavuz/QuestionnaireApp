@@ -1,10 +1,12 @@
-package com.yavuz.questionnaireapp
+package com.yavuz.questionnaireapp.view
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.yavuz.questionnaireapp.adapter.QuestionAdapter
+import com.yavuz.questionnaireapp.model.Question
 import com.yavuz.questionnaireapp.databinding.CustomViewBinding
 
 class QuestionView

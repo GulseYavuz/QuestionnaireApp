@@ -1,8 +1,9 @@
-package com.yavuz.questionnaireapp
+package com.yavuz.questionnaireapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
+import com.yavuz.questionnaireapp.model.Questionnaire
 import com.yavuz.questionnaireapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

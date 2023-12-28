@@ -1,4 +1,4 @@
-package com.yavuz.questionnaireapp
+package com.yavuz.questionnaireapp.adapter
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
+import com.yavuz.questionnaireapp.model.Question
 import com.yavuz.questionnaireapp.databinding.ItemQuestionBinding
 
 

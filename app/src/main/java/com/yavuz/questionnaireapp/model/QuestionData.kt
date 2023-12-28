@@ -1,4 +1,4 @@
-package com.yavuz.questionnaireapp
+package com.yavuz.questionnaireapp.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
