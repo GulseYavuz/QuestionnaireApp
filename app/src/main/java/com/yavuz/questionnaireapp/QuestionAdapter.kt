@@ -38,7 +38,6 @@ class QuestionAdapter (
             holder.itemQuestionBinding.requiredTextView.visibility = View.GONE
         }
 
-
         holder.itemQuestionBinding.singleChoiceRadioGroup.removeAllViews()
         holder.itemQuestionBinding.multipleChoiceLayout.removeAllViews()
         if(!question.options.isNullOrEmpty()) {

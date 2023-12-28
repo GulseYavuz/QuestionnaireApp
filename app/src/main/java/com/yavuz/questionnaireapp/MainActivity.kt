@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         questionnaire = loadQuestions()
         binding.questionView.setQuestions(questionnaire.questions)
 
-
     }
     fun loadQuestions(): Questionnaire {
         try {

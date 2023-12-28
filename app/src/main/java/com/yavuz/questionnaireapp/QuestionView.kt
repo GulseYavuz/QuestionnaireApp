@@ -26,6 +26,5 @@ constructor(
     fun setQuestions(questions: List<Question>) {
         questionAdapter.setQuestions(questions)
     }
-
 }
 
