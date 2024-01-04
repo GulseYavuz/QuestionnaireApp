@@ -1,15 +1,18 @@
 package com.yavuz.questionnaireapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-import com.yavuz.questionnaireapp.model.Questionnaire
+import com.yavuz.questionnaireapp.R
 import com.yavuz.questionnaireapp.databinding.ActivityMainBinding
+import com.yavuz.questionnaireapp.model.Answer
+import com.yavuz.questionnaireapp.model.Questionnaire
+import com.yavuz.questionnaireapp.view.SurveyCallback
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(){
     private lateinit var binding: ActivityMainBinding
     private lateinit var questionnaire: Questionnaire
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +21,20 @@ class MainActivity : AppCompatActivity() {
 
         questionnaire = loadQuestions()
         binding.questionView.setQuestions(questionnaire.questions)
+        binding.questionView.setColor(R.color.mint, R.color.white)
 
+        val surveyCallback = object : SurveyCallback {
+            override fun onAnswerReceived(answer: List<Answer>) {
+                for (response in answer) {
+                    Log.d("MainActivity", "Question ID: ${response.id}, User Response: ${response.text}")
+                }
+            }
+        }
+        binding.questionView.setSurveyCallback(surveyCallback)
     }
+
+
+
     fun loadQuestions(): Questionnaire {
         try {
             val inputStream = assets.open("question.json")
@@ -32,4 +47,5 @@ class MainActivity : AppCompatActivity() {
             return questionnaire
         }
     }
+
 }

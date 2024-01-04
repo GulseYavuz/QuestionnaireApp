@@ -61,7 +61,7 @@
     {
       "id": 5,
       "text": "What are the primary colors?",
-      "type": "single",
+      "type": "multiple",
       "options": [
         "Red",
         "Green",

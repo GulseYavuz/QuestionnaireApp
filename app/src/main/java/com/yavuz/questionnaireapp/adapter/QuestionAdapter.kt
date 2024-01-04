@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.RadioButton
 import androidx.recyclerview.widget.RecyclerView
-import com.yavuz.questionnaireapp.model.Question
 import com.yavuz.questionnaireapp.databinding.ItemQuestionBinding
-
+import com.yavuz.questionnaireapp.model.Answer
+import com.yavuz.questionnaireapp.model.Question
+import com.yavuz.questionnaireapp.view.SurveyCallback
 
 class QuestionAdapter (
-    private var question: List<Question>
-) :
+    private var question: List<Question>,
+    private var surveyCallback: SurveyCallback
+    ) :
     RecyclerView.Adapter<QuestionAdapter.QuestionViewHolder>() {
+    private var userAnswers: ArrayList<Answer> = arrayListOf()
+    private var questionTextColor: Int? = null
 
     inner class QuestionViewHolder(val itemQuestionBinding: ItemQuestionBinding) : RecyclerView.ViewHolder(itemQuestionBinding.root)
 
@@ -33,27 +37,43 @@ class QuestionAdapter (
         holder.itemQuestionBinding.questionTextView.text = question.text
         holder.itemQuestionBinding.explanationTextView.text = question.explanation
 
-        if (question.isRequired) {
-            holder.itemQuestionBinding.requiredTextView.visibility = View.VISIBLE
-        } else {
-            holder.itemQuestionBinding.requiredTextView.visibility = View.GONE
-        }
+        questionTextColor?.let { holder.itemQuestionBinding.questionTextView.setTextColor(it) }
 
-        holder.itemQuestionBinding.singleChoiceRadioGroup.removeAllViews()
-        holder.itemQuestionBinding.multipleChoiceLayout.removeAllViews()
+
         if(!question.options.isNullOrEmpty()) {
+            holder.itemQuestionBinding.singleChoiceRadioGroup.removeAllViews()
+            holder.itemQuestionBinding.multipleChoiceLayout.removeAllViews()
+
             for (option in question.options!!) {
                 if (question.type == "single") {
                     val radioButton = RadioButton(holder.itemView.context)
                     radioButton.text = option
+                    radioButton.setOnCheckedChangeListener { _, isChecked ->
+                        if (isChecked) {
+                            val answer = Answer(question.id, option)
+                            userAnswers.add(answer)
+                        }
+                    }
+
                     holder.itemQuestionBinding.singleChoiceRadioGroup.addView(radioButton)
+
                 } else if (question.type == "multiple") {
                     val checkBox = CheckBox(holder.itemView.context)
                     checkBox.text = option
+                    checkBox.setOnCheckedChangeListener { _, isChecked ->
+                        if (isChecked) {
+                            val answer = Answer(question.id, option)
+                            userAnswers.add(answer)
+                        }
+                    }
                     holder.itemQuestionBinding.multipleChoiceLayout.addView(checkBox)
                 }
             }
         }
+        if (checkIfAllQuestionsAnswered()) {
+            surveyCallback.onAnswerReceived(userAnswers)
+        }
+
 
         Log.d("QuestionAdapter", "Binding question: ${question.text}")
         if(question.type == "single"){
@@ -64,8 +84,21 @@ class QuestionAdapter (
             holder.itemQuestionBinding.multipleChoiceLayout.visibility = View.VISIBLE
         }
     }
+
+    private fun checkIfAllQuestionsAnswered(): Boolean {
+        if (userAnswers.size == itemCount){
+            surveyCallback.onAnswerReceived(userAnswers)
+        }
+        return true
+    }
+
     fun setQuestions(questions: List<Question>) {
         this.question = questions
+        notifyDataSetChanged()
+    }
+
+    fun setColorAdapter(fontColor: Int) {
+        this.questionTextColor = fontColor
         notifyDataSetChanged()
     }
 }

@@ -18,5 +18,6 @@ data class Question(
     @SerializedName("explanation") var explanation: String,
     @SerializedName("type") val type: String,
     @SerializedName("required") val isRequired: Boolean,
+    @SerializedName("response") var response: String? = null,
     @SerializedName("options") var options: List<String>? = null
 ) :Parcelable

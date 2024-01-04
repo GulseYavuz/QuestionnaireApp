@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="red">#D80606</color>
+    <color name="lightPurple">#EDDBBF</color>
+    <color name="mint">#21EA29</color>
+    <color name="turkuaz">#6FBDB6</color>
 
 </resources>

@@ -6,27 +6,45 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yavuz.questionnaireapp.adapter.QuestionAdapter
-import com.yavuz.questionnaireapp.model.Question
 import com.yavuz.questionnaireapp.databinding.CustomViewBinding
+import com.yavuz.questionnaireapp.model.Answer
+import com.yavuz.questionnaireapp.model.Question
+
+interface SurveyCallback {
+    fun onAnswerReceived(answer: List<Answer>)
+}
 
 class QuestionView
 @JvmOverloads
 constructor(
-    context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0
+    context: Context, attrs: AttributeSet? = null
 ) : LinearLayout(context, attrs) {
-    private val questionAdapter: QuestionAdapter
-    private val binding: CustomViewBinding
+    private val binding: CustomViewBinding = CustomViewBinding.inflate(LayoutInflater.from(context), this, true)
+
+    private var surveyCallback: SurveyCallback? = null
+
+    private val questionAdapter: QuestionAdapter = QuestionAdapter(emptyList(),
+        object: SurveyCallback{
+            override fun onAnswerReceived(answer: List<Answer>) {
+                surveyCallback?.onAnswerReceived(answer)
+            }
+        })
 
     init {
-        orientation = VERTICAL
-        binding = CustomViewBinding.inflate(LayoutInflater.from(context), this, true)
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
-        questionAdapter = QuestionAdapter(listOf())
         binding.recyclerView.adapter = questionAdapter
+
     }
 
     fun setQuestions(questions: List<Question>) {
         questionAdapter.setQuestions(questions)
+    }
+    fun setSurveyCallback(callback: SurveyCallback) {
+        surveyCallback = callback
+    }
+    fun setColor(viewBackGroundColor: Int, fontColor: Int) {
+        binding.root.setBackgroundColor(viewBackGroundColor)
+        questionAdapter.setColorAdapter(fontColor)
     }
 }
 
