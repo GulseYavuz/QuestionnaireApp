@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(){
 
         questionnaire = loadQuestions()
         binding.questionView.setQuestions(questionnaire.questions)
-        binding.questionView.setColor(R.color.mint, R.color.white)
+        binding.questionView.setColor(R.color.turkuaz, R.color.black)
 
         val surveyCallback = object : SurveyCallback {
             override fun onAnswerReceived(answer: List<Answer>) {
@@ -32,8 +32,6 @@ class MainActivity : AppCompatActivity(){
         }
         binding.questionView.setSurveyCallback(surveyCallback)
     }
-
-
 
     fun loadQuestions(): Questionnaire {
         try {
@@ -47,5 +45,4 @@ class MainActivity : AppCompatActivity(){
             return questionnaire
         }
     }
-
 }

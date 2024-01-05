@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yavuz.questionnaireapp.adapter.QuestionAdapter
 import com.yavuz.questionnaireapp.databinding.CustomViewBinding
@@ -43,8 +44,8 @@ constructor(
         surveyCallback = callback
     }
     fun setColor(viewBackGroundColor: Int, fontColor: Int) {
-        binding.root.setBackgroundColor(viewBackGroundColor)
-        questionAdapter.setColorAdapter(fontColor)
+        binding.root.setBackgroundColor(ContextCompat.getColor(context, viewBackGroundColor))
+        questionAdapter.setColorAdapter(ContextCompat.getColor(context, fontColor))
     }
 }
 

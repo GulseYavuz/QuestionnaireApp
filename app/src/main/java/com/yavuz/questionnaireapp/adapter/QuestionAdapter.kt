@@ -34,11 +34,12 @@ class QuestionAdapter (
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val question = question[position]
+
         holder.itemQuestionBinding.questionTextView.text = question.text
         holder.itemQuestionBinding.explanationTextView.text = question.explanation
 
+        // setting text font color
         questionTextColor?.let { holder.itemQuestionBinding.questionTextView.setTextColor(it) }
-
 
         if(!question.options.isNullOrEmpty()) {
             holder.itemQuestionBinding.singleChoiceRadioGroup.removeAllViews()
@@ -53,6 +54,9 @@ class QuestionAdapter (
                             val answer = Answer(question.id, option)
                             userAnswers.add(answer)
                         }
+                        if (checkIfAllQuestionsAnswered()) {
+                            surveyCallback.onAnswerReceived(userAnswers)
+                        }
                     }
 
                     holder.itemQuestionBinding.singleChoiceRadioGroup.addView(radioButton)
@@ -65,15 +69,14 @@ class QuestionAdapter (
                             val answer = Answer(question.id, option)
                             userAnswers.add(answer)
                         }
+                        if (checkIfAllQuestionsAnswered()) {
+                            surveyCallback.onAnswerReceived(userAnswers)
+                        }
                     }
                     holder.itemQuestionBinding.multipleChoiceLayout.addView(checkBox)
                 }
             }
         }
-        if (checkIfAllQuestionsAnswered()) {
-            surveyCallback.onAnswerReceived(userAnswers)
-        }
-
 
         Log.d("QuestionAdapter", "Binding question: ${question.text}")
         if(question.type == "single"){
@@ -87,9 +90,9 @@ class QuestionAdapter (
 
     private fun checkIfAllQuestionsAnswered(): Boolean {
         if (userAnswers.size == itemCount){
-            surveyCallback.onAnswerReceived(userAnswers)
+            return true
         }
-        return true
+        return false
     }
 
     fun setQuestions(questions: List<Question>) {
